@@ -6,24 +6,7 @@ app.controller('profileCtrl', function(user, $scope, $http) {
     console.log('profileCtrl loaded');
     console.log('user: ', user);
     $scope.user = user;
-    // $http.get(`${user.href}/customData`)
-    // .then(res => {
-    //     console.log('ressss: ', res);
-    //     $scope.user.customData = res.data;
-    // })
-    // .catch(err => {
-    //     console.log('err: ', err);
-    // })
-    //
-    // $scope.customData = ()=>{
-    //
-    // }
-    // client.getAccount(user.href, function(err, account) {
-    //     account.getCustomData(function(err, customData) {
-    //         $scope.user.customData = customData;
-    //         console.log('my custom property', customData.myCustomProperty);
-    //     });
-    // });
+
 
     $scope.edit = () => {
         $scope.editting = true;
@@ -41,7 +24,17 @@ app.controller('profileCtrl', function(user, $scope, $http) {
             .then(res => {
                 console.log('res: ', res);
                 $scope.user = res.data;
+                var customDataUri = res.data.customData.href;
+                console.log('customDataUri: ', customDataUri);
                 $scope.cancel();
+                // $http.get(`${customDataUri}`)
+                // .then(res => {
+                //     console.log('ressss from customDataUri: ', res.data);
+                //     // $scope.user.customData = res.data;
+                // })
+                // .catch(err => {
+                //     console.log('err: ', err);
+                // })
             })
             .catch(err => {
                 console.log('err: ', err);
