@@ -1,0 +1,33 @@
+<div>
+    <h1>Profile</h1>
+    <h3>Username: {{user.username}}</h3>
+    <h3>Name: {{user.fullName}}</h3>
+    <h3>favorite City: {{user.customData.favoriteCity}}</h3>
+    <h3>favorite Food: {{user.customData.favoriteFood}}</h3>
+    <button ng-click="edit()" class="btn btn-default" >edit</button>
+</div>
+<hr>
+<form class="col-sm-6 col-sm-offset-3" ng-show='editting' ng-submit="update()">
+ <div class="form-group">
+   <label>First name</label>
+   <input type="text" class="form-control" ng-model="editUser.givenName" placeholder="">
+ </div>
+ <div class="form-group">
+   <label>Middle name</label>
+   <input type="text" class="form-control" ng-model="editUser.middleName" placeholder="">
+ </div>
+ <div class="form-group">
+   <label>Last name</label>
+   <input type="text" class="form-control" ng-model="editUser.surname" placeholder="">
+ </div>
+ <div class="form-group">
+   <label>favorite City</label>
+   <input type="text" class="form-control" ng-model="editUser.customData.favoriteCity" placeholder="Fremont, San Francisco...">
+ </div>
+ <div class="form-group">
+   <label>favorite Food</label>
+   <input type="text" class="form-control" ng-model="editUser.customData.favoriteFood" placeholder="Apple, Banana, pineapple...">
+ </div>
+ <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+ <button class="btn btn-default" >Update</button>
+</form>

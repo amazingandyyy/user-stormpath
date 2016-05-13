@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Storm-log</title>
+
+    <link rel="stylesheet" href="https://bootswatch.com/united/bootstrap.min.css">
+    <link rel='stylesheet' href='/css/style.css' />
+
+    <script src="/bower_components/angular/angular.min.js"></script>
+
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="/bower_components/stormpath-sdk-angularjs/dist/stormpath-sdk-angularjs.min.js"></script>
+    <script src="/bower_components/stormpath-sdk-angularjs/dist/stormpath-sdk-angularjs.tpls.min.js"></script>
+
+    <script src="/js/module.js"></script>
+    <script src="/js/controllers.js"></script>
+
+  </head>
+  <body ng-app="myApp">
+    <h1>Storm-log</h1>
+    <p>Welcome to Storm-log</p>
+<hr>
+    <button class="btn btn-default"ui-sref="home">Home</button>
+    <!-- <button ui-sref="secret">secret</button> -->
+    <button class="btn btn-default"ui-sref="home" sp-logout if-user>Logout</button>
+    <button class="btn btn-default"ui-sref="login" if-not-user>Login</button>
+    <!-- <a href="./login"><button if-not-user>Loginnn</button></a> -->
+    <button class="btn btn-default"ui-sref="signup"  if-not-user>signup</button>
+    <button class="btn btn-default"ui-sref="profile">profile</button>
+    <ui-view></ui-view>
+
+  </body>
+</html>
